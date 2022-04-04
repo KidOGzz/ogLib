@@ -1,0 +1,6 @@
+name: ogLib
+version: ggbd31f
+author: OGzz Services
+main: zz.kidog.oglib.ogLib
+softdepend: [ CommonLibs, ProtocolLib ]
+load: STARTUP
