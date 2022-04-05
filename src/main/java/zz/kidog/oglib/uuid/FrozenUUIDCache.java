@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import zz.kidog.oglib.ogLib;
 import lombok.Getter;
+import zz.kidog.oglib.uuid.impl.RedisUUIDCache;
 
 public final class FrozenUUIDCache {
 
@@ -18,7 +19,7 @@ public final class FrozenUUIDCache {
         Preconditions.checkState(!initiated);
         initiated = true;
         try {
-            impl = (UUIDCache)Class.forName(ogLib.getInstance().getConfig().getString("UUIDCache.Backend", "Cache")).newInstance();
+            impl = (UUIDCache) new RedisUUIDCache();
         }
         catch (Exception e) {
             e.printStackTrace();
